@@ -32,7 +32,7 @@ public class CountActivity extends AppCompatActivity {
         numberButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                countText.setText(""+extraInfo);
+                countText.setText(String.valueOf(extraInfo));
                 countText.setTextSize(30);
 
             }

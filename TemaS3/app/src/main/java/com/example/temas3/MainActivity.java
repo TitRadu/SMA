@@ -72,10 +72,12 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void nameAdd(){
+        String name = editText.getText().toString();
+
         if(editText.getText().toString().isEmpty()) {
             Toast.makeText(this,"Nu ati introdus un nume!",Toast.LENGTH_SHORT).show();
         }else{
-            hiText.setText("Hi," + editText.getText() + "!");
+            hiText.setText("Hi," + name + "!");
         }
     }
 
