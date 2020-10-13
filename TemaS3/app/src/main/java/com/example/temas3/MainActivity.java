@@ -8,13 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button countButton,textButton,sendButton;
+    private Button countButton,okButton,cancelButton,showButton,addButton;
     private TextView hiText;
     private EditText editText;
+    private LinearLayout hideLayout;
     private int count;
 
     @Override
@@ -30,10 +32,35 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 countActivity();
-            }
-        });
 
-        textButton.setOnClickListener(new View.OnClickListener(){
+            }
+
+        });
+        okButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                nameSend();
+
+            }
+
+        });
+        cancelButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                cancel();
+
+            }
+
+        });
+        showButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                show();
+
+            }
+
+        });
+        addButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 nameAdd();
@@ -42,22 +69,17 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        sendButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                nameSend();
-
-            }
-
-        });
     }
 
     private void initializeViews(){
         countButton=findViewById(R.id.countBtn);
-        textButton=findViewById(R.id.textBtn);
+        hideLayout=findViewById(R.id.hideLayout);
+        okButton=findViewById(R.id.okBtn);
+        cancelButton=findViewById(R.id.cancelBtn);
+        showButton=findViewById(R.id.showBtn);
         hiText=findViewById(R.id.hiText);
         editText=findViewById(R.id.editText);
-        sendButton=findViewById(R.id.sendBtn);
+        addButton=findViewById(R.id.addBtn);
         count = 0;
 
     }
@@ -70,17 +92,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @SuppressLint("SetTextI18n")
-    private void nameAdd(){
-        String name = editText.getText().toString();
-
-        if(editText.getText().toString().isEmpty()) {
-            Toast.makeText(this,"Nu ati introdus un nume!",Toast.LENGTH_SHORT).show();
-        }else{
-            hiText.setText("Hi," + name + "!");
-        }
-    }
-
     private void nameSend(){
         String sendName = editText.getText().toString();
         if(sendName.isEmpty()) {
@@ -89,7 +100,34 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SendActivity.class);
             intent.putExtra("name",sendName);
             startActivity(intent);
+            editText.setText("");
+            hiText.setText("Hi!");
+            hideLayout.setVisibility(View.INVISIBLE);
 
+        }
+
+    }
+
+    private void cancel(){
+        Toast.makeText(this,"Dialog ascuns!",Toast.LENGTH_SHORT).show();
+        hideLayout.setVisibility(View.INVISIBLE);
+
+    }
+
+    private void show(){
+        Toast.makeText(this,"Dialog vizibil!",Toast.LENGTH_SHORT).show();
+        hideLayout.setVisibility(View.VISIBLE);
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void nameAdd(){
+
+        String name = editText.getText().toString();
+        if(editText.getText().toString().isEmpty()) {
+            Toast.makeText(this,"Nu ati introdus un nume!",Toast.LENGTH_SHORT).show();
+        }else{
+            hiText.setText("Hi," + name + "!");
         }
 
     }
