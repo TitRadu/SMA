@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializeViews();
-       // Intent intent = getIntent();
-      //  extraInfo = intent.getStringExtra(AppConstants.NAVIGATION_KEY_1);
         initializeList();
         setOnClickListeners();
         setRecyclerView();
