@@ -116,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"Introdu un pret valid!", Toast.LENGTH_SHORT).show();
             return;
 
-
         }
 
     }
