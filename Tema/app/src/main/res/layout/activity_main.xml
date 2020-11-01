@@ -99,11 +99,11 @@
                 android:text="DataBase"
                 android:layout_marginBottom="50dp"/>
             <Button
-                android:id="@+id/Btn3"
+                android:id="@+id/logInBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"
-                android:text="New"/>
+                android:text="LogIn System"/>
             <Button
                 android:id="@+id/Btn4"
                 android:layout_width="wrap_content"

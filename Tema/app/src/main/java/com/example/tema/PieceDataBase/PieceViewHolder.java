@@ -1,4 +1,4 @@
-package com.example.tema;
+package com.example.tema.PieceDataBase;
 
 import android.annotation.SuppressLint;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.tema.R;
 
 
 public class PieceViewHolder extends RecyclerView.ViewHolder {

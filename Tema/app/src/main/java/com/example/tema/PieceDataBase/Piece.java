@@ -1,4 +1,4 @@
-package com.example.tema;
+package com.example.tema.PieceDataBase;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

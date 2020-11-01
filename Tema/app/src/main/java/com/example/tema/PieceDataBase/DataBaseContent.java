@@ -1,4 +1,4 @@
-package com.example.tema;
+package com.example.tema.PieceDataBase;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
+
+import com.example.tema.PieceDataBase.Piece;
+import com.example.tema.PieceDataBase.PieceAdapter;
+import com.example.tema.R;
 
 import java.util.ArrayList;
 import java.util.Collection;

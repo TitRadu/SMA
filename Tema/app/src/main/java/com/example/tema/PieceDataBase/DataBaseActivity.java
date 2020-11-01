@@ -1,4 +1,4 @@
-package com.example.tema;
+package com.example.tema.PieceDataBase;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.tema.AppExecutors;
+import com.example.tema.PieceDataBase.DataBaseContent;
+import com.example.tema.PieceDataBase.Piece;
+import com.example.tema.PieceDataBase.PieceDatabase;
+import com.example.tema.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -114,7 +119,7 @@ public class DataBaseActivity extends AppCompatActivity {
     }
 
     private void dataBaseContentActivity(){
-        Intent intent = new Intent(this,DataBaseContent.class);
+        Intent intent = new Intent(this, DataBaseContent.class);
         intent.putExtra("content", (Serializable) pieceList);
         startActivity(intent);
 

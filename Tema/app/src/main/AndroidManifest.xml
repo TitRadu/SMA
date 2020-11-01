@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DataBaseContent"></activity>
-        <activity android:name=".DataBaseActivity" />
+        <activity android:name=".LogInSystem.LogInActivity"></activity>
+        <activity
+            android:name=".LogInSystem.BottomNavigationActivity"
+            android:label="@string/title_activity_bottom_navigation" />
+        <activity android:name=".PieceDataBase.DataBaseContent" />
+        <activity android:name=".PieceDataBase.DataBaseActivity" />
         <activity android:name=".FileIOActivity" />
         <activity android:name=".SendActivity" />
         <activity android:name=".CountActivity" />

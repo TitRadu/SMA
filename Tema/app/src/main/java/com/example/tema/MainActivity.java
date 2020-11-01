@@ -11,8 +11,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tema.LogInSystem.LogInActivity;
+import com.example.tema.PieceDataBase.DataBaseActivity;
+
 public class MainActivity extends AppCompatActivity {
-    private Button countButton,okButton,cancelButton,showButton,addButton, fileIOButton, dataBaseButton;
+    private Button countButton,okButton,cancelButton,showButton,addButton, fileIOButton, dataBaseButton, logInButton;
     private TextView hiText;
     private EditText editText;
     private LinearLayout hideLayout;
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(v -> nameAdd());
         fileIOButton.setOnClickListener(v -> fileIOActivity());
         dataBaseButton.setOnClickListener(v -> dataBaseActivity());
-
+        logInButton.setOnClickListener(v -> logInActivity());
     }
 
     private void initializeViews(){
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         addButton=findViewById(R.id.addBtn);
         fileIOButton = findViewById(R.id.fileIOBtn);
         dataBaseButton = findViewById(R.id.dbBtn);
+        logInButton = findViewById(R.id.logInBtn);
         count = 0;
 
     }
@@ -92,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
     private void nameAdd(){
 
         String name = editText.getText().toString();
-        if(editText.getText().toString().isEmpty()) {
+        if(name.isEmpty()) {
             Toast.makeText(this,"Nu ati introdus un nume!",Toast.LENGTH_SHORT).show();
         }else{
             hiText.setText("Hi," + name + "!");
@@ -108,6 +112,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void dataBaseActivity(){
         Intent intent = new Intent(this, DataBaseActivity.class);
+        startActivity(intent);
+
+    }
+
+    private void logInActivity(){
+        Intent intent = new Intent(this, LogInActivity.class);
         startActivity(intent);
 
     }

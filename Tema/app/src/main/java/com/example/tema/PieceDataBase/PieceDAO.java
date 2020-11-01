@@ -1,4 +1,4 @@
-package com.example.tema;
+package com.example.tema.PieceDataBase;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
