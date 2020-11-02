@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LogInSystem.LogInActivity"></activity>
+        <activity android:name=".LogInSystem.LogInSystemActivity"></activity>
+        <activity android:name=".LogInSystem.RegisterActivity" />
+        <activity android:name=".LogInSystem.LogInActivity" />
         <activity
             android:name=".LogInSystem.BottomNavigationActivity"
             android:label="@string/title_activity_bottom_navigation" />

@@ -18,6 +18,10 @@ public interface UserDAO {
     @Query("SELECT * FROM user WHERE userName = :name")
     List<User> findByUserName(String name);
 
+    @Query("UPDATE user  SET firstName = :firstName, lastName = :lastName, email = :email, age = :age WHERE userName = :userName")
+    void updateFirstName(String userName,String firstName, String lastName, String email, int age);
+
+
     @Insert
     void insertAllUsers(User... users);
 

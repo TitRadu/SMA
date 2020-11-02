@@ -51,7 +51,7 @@ public class CountActivity extends AppCompatActivity {
         readButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                readPreferenceses();
+                readPreferences();
             }
         });
 
@@ -86,7 +86,7 @@ public class CountActivity extends AppCompatActivity {
 
     }
 
-    public void readPreferenceses(){
+    public void readPreferences(){
         if(keyViewCheckIsEmpty()){
             return;
 

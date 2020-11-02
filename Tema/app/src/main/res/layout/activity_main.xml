@@ -99,7 +99,7 @@
                 android:text="DataBase"
                 android:layout_marginBottom="50dp"/>
             <Button
-                android:id="@+id/logInBtn"
+                android:id="@+id/logInSystemBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"

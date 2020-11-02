@@ -1,5 +1,6 @@
 package com.example.tema.LogInSystem;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -22,6 +23,8 @@ public class BottomNavigationActivity extends AppCompatActivity implements Botto
     private Fragment activeFragment;
     private final FragmentManager fragmentManager = getSupportFragmentManager();
 
+    public static String userNameReceived;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class BottomNavigationActivity extends AppCompatActivity implements Botto
         BottomNavigationView navView = findViewById(R.id.nav_view);
         initializeViews();
         LoadFragment();
+        Intent intent = getIntent();
+        userNameReceived = intent.getStringExtra("user");
 
     }
 

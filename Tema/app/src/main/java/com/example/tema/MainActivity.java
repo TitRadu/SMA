@@ -11,11 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.tema.LogInSystem.LogInActivity;
+
+import com.example.tema.LogInSystem.LogInSystemActivity;
 import com.example.tema.PieceDataBase.DataBaseActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private Button countButton,okButton,cancelButton,showButton,addButton, fileIOButton, dataBaseButton, logInButton;
+    private Button countButton,okButton,cancelButton,showButton,addButton, fileIOButton, dataBaseButton, logInSystemButton;
     private TextView hiText;
     private EditText editText;
     private LinearLayout hideLayout;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(v -> nameAdd());
         fileIOButton.setOnClickListener(v -> fileIOActivity());
         dataBaseButton.setOnClickListener(v -> dataBaseActivity());
-        logInButton.setOnClickListener(v -> logInActivity());
+        logInSystemButton.setOnClickListener(v -> logInSystemActivity());
     }
 
     private void initializeViews(){
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         addButton=findViewById(R.id.addBtn);
         fileIOButton = findViewById(R.id.fileIOBtn);
         dataBaseButton = findViewById(R.id.dbBtn);
-        logInButton = findViewById(R.id.logInBtn);
+        logInSystemButton = findViewById(R.id.logInSystemBtn);
         count = 0;
 
     }
@@ -116,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void logInActivity(){
-        Intent intent = new Intent(this, LogInActivity.class);
+    private void logInSystemActivity(){
+        Intent intent = new Intent(this, LogInSystemActivity.class);
         startActivity(intent);
 
     }
