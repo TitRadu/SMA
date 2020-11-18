@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "392353139973",
+    "firebase_url": "https://labsma-1e05a.firebaseio.com",
+    "project_id": "labsma-1e05a",
+    "storage_bucket": "labsma-1e05a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392353139973:android:f53e22b6b3f828560e3b6c",
+        "android_client_info": {
+          "package_name": "com.example.tema"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392353139973-bceodk7cbt5kmta29i7h4rjue3508he1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tema",
+            "certificate_hash": "555718a5e5780d0b689d1e15491f1c49da126961"
+          }
+        },
+        {
+          "client_id": "392353139973-vavef9drphh3e7limbt93mkph8v39kb0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-wqXpv4WqrHcWbpSUh5yPqyqeBjl0QRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392353139973-vavef9drphh3e7limbt93mkph8v39kb0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

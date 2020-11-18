@@ -1,4 +1,4 @@
-package com.example.tema.PieceDataBase;
+package com.example.tema.Firebase.TeamList;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,18 +15,18 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class DataBaseContent extends AppCompatActivity {
-    private List<Piece> content;
-    private RecyclerView pieceListRV;
-    private PieceAdapter pieceAdapter;
-    private List<Piece> extraInfo;
+public class ShowTeamsActivity extends AppCompatActivity {
+    private List<Team> content;
+    private RecyclerView teamsListRV;
+    private TeamAdapter teamAdapter;
+    private List<Team> extraInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_base_content);
+        setContentView(R.layout.activity_show_teams);
         Intent intent = getIntent();
-        extraInfo = (List<Piece>) intent.getSerializableExtra("content");
+        extraInfo = (List<Team>) intent.getSerializableExtra("content");
         initializeViews();
         initializeList();
         setRecyclerView();
@@ -34,7 +34,7 @@ public class DataBaseContent extends AppCompatActivity {
     }
 
     private void initializeViews(){
-        pieceListRV = findViewById(R.id.rv_pieces_list);
+        teamsListRV = findViewById(R.id.rv_teams_list);
 
     }
 
@@ -44,15 +44,15 @@ public class DataBaseContent extends AppCompatActivity {
     }
 
     private void setRecyclerView(){
-        pieceAdapter = new PieceAdapter(content);
-        pieceListRV.setLayoutManager(new LinearLayoutManager(this));
-        pieceListRV.setAdapter(pieceAdapter);
+        teamAdapter = new TeamAdapter(content);
+        teamsListRV.setLayoutManager(new LinearLayoutManager(this));
+        teamsListRV.setAdapter(teamAdapter);
 
     }
 
     void showContent(){
-        content.addAll((Collection<? extends Piece>) extraInfo);
-        pieceAdapter.notifyDataSetChanged();
+        content.addAll((Collection<? extends Team>) extraInfo);
+        teamAdapter.notifyDataSetChanged();
 
     }
 

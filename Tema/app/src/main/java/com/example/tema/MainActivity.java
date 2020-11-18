@@ -1,6 +1,7 @@
 package com.example.tema;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.tema.Firebase.LogInFBActivity;
 import com.example.tema.LogInSystem.LogInSystemActivity;
 import com.example.tema.PieceDataBase.DataBaseActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private Button countButton,okButton,cancelButton,showButton,addButton, fileIOButton, dataBaseButton, logInSystemButton;
+    private Button countButton,okButton,cancelButton,showButton,addButton, fileIOButton, dataBaseButton, logInSystemButton,
+            firebaseButton;
     private TextView hiText;
     private EditText editText;
     private LinearLayout hideLayout;
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         fileIOButton.setOnClickListener(v -> fileIOActivity());
         dataBaseButton.setOnClickListener(v -> dataBaseActivity());
         logInSystemButton.setOnClickListener(v -> logInSystemActivity());
+        firebaseButton.setOnClickListener(v -> firebaseActivity());
+
     }
 
     private void initializeViews(){
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         fileIOButton = findViewById(R.id.fileIOBtn);
         dataBaseButton = findViewById(R.id.dbBtn);
         logInSystemButton = findViewById(R.id.logInSystemBtn);
+        firebaseButton = findViewById(R.id.firebaseBtn);
         count = 0;
 
     }
@@ -119,6 +125,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void logInSystemActivity(){
         Intent intent = new Intent(this, LogInSystemActivity.class);
+        startActivity(intent);
+
+    }
+
+    private void firebaseActivity(){
+        Intent intent = new Intent(this, LogInFBActivity.class);
         startActivity(intent);
 
     }

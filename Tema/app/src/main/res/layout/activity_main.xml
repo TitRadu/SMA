@@ -105,11 +105,11 @@
                 android:layout_marginBottom="50dp"
                 android:text="LogIn System"/>
             <Button
-                android:id="@+id/Btn4"
+                android:id="@+id/firebaseBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"
-                android:text="New"/>
+                android:text="Firebase"/>
             <Button
                 android:id="@+id/Btn5"
                 android:layout_width="wrap_content"
