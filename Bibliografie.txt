@@ -1,3 +1,0 @@
-https://www.baeldung.com/java-concurrentmodificationexception?fbclid=IwAR1t5eT_pA4rtsFIsqUJ1IVxppv2rKCbtnbscno5iryL4VdMJaewYDMpam0 -> exceptie ConcurrentModificationException
-https://stackoverflow.com/questions/9063450/android-how-to-remove-list-item?fbclid=IwAR0A_iOe7qKt2W0PkHYrX61fDdw0VovUWW_sXcnmEiPY9L7hPW9J9YcdUAo -> metoda notifyDataSetChanged();
-https://www.codegrepper.com/search.php?q=pass%20list%20to%20intent%20in%20android%20java -> parse a list between activities
