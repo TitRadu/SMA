@@ -23,8 +23,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.UUID;
+
 public class RegisterFBActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private FirebaseHelper firebaseHelper;
 
     private AlertDialog.Builder alert;
     TextInputLayout textInputLayoutUserName;
@@ -42,6 +45,7 @@ public class RegisterFBActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_f_b);
         mAuth = FirebaseAuth.getInstance();
+        firebaseHelper = FirebaseHelper.getInstance();
         initializeViews();
 
     }
@@ -121,6 +125,9 @@ public class RegisterFBActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            RegisteredUser registeredUser = new RegisteredUser(email);
+                            firebaseHelper.userDatabaseReference.child(UUID.randomUUID().toString()).setValue(registeredUser);
+
                             Toast.makeText(getBaseContext(), "Inregistrare reusita!", Toast.LENGTH_SHORT).show();
 
                         } else {

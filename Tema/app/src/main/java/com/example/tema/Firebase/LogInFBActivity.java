@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LogInFBActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+    private FirebaseUser loggedUser;
     private Button logInButton, registerButton;
     private String emailLogIn, passwordLogIn;
     private EditText emailInput, passwordInput;
@@ -30,9 +30,18 @@ public class LogInFBActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_f_b);
-        mAuth = FirebaseAuth.getInstance();
+        initializeLoggedUser();
         initializeViews();
         setOnClickListeners();
+
+    }
+
+    private void initializeLoggedUser(){
+        loggedUser = FirebaseAuth.getInstance().getCurrentUser();
+        if(loggedUser != null){
+            updateUI(loggedUser);
+
+        }
 
     }
 
@@ -77,14 +86,14 @@ public class LogInFBActivity extends AppCompatActivity {
     }
 
     private void signIn(String email, String password){
-        mAuth.signInWithEmailAndPassword(email, password)
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Toast.makeText(getBaseContext(), "Succes!", Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            FirebaseUser user = loggedUser;
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -99,7 +108,6 @@ public class LogInFBActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser firebaseUser){
         Intent intent = new Intent(this, LoggedActivity.class);
-        intent.putExtra("email", emailLogIn);
         startActivity(intent);
 
     }

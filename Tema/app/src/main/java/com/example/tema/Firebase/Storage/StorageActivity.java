@@ -3,6 +3,7 @@ package com.example.tema.Firebase.Storage;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.tema.Firebase.LogInFBActivity;
 import com.example.tema.Firebase.TeamList.Team;
 import com.example.tema.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -91,7 +93,7 @@ public class StorageActivity extends AppCompatActivity {
         StorageReference bucketRef = firebaseStorage.getReferenceFromUrl("gs://labsma-1e05a.appspot.com/images");
         StorageReference download = bucketRef.child(fileName);
 
-        File localFile = new File(downloadPath, "downloadFile.jpg");
+        File localFile = new File(downloadPath, fileName);
 
 
         download.getFile(localFile)
@@ -102,13 +104,19 @@ public class StorageActivity extends AppCompatActivity {
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Toast.makeText(getBaseContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Toast.makeText(getBaseContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
 
+
+    }
+
+    public void showPicturesActivity(View view){
+        Intent intent = new Intent(this, ShowPicturesActivity.class);
+        startActivity(intent);
 
     }
 

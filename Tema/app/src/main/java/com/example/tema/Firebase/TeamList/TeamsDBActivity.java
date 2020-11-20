@@ -75,7 +75,7 @@ public class TeamsDBActivity extends AppCompatActivity {
     }
 
     private void addTeam(Team team){
-        FirebaseHelper.teamDatabaseReference.child(UUID.randomUUID().toString()).setValue(team);
+        firebaseHelper.teamDatabaseReference.child(UUID.randomUUID().toString()).setValue(team);
 
     }
 
