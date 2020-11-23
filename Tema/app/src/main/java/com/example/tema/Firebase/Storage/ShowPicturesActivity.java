@@ -1,5 +1,6 @@
 package com.example.tema.Firebase.Storage;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,20 +12,28 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.tema.Firebase.TeamList.Team;
 import com.example.tema.Firebase.TeamList.TeamAdapter;
 import com.example.tema.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ShowPicturesActivity extends AppCompatActivity {
     private static final int RESULT_LOAD_IMAGE = 1543;
     private List<Uri> content;
     private RecyclerView picturesListRV;
     private PictureAdapter picturesAdapter;
-
+    private FirebaseStorage firebaseStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +46,7 @@ public class ShowPicturesActivity extends AppCompatActivity {
     private void initializeViews(){
         picturesListRV = findViewById(R.id.rv_pictures_list);
         content = new ArrayList<>();
+        firebaseStorage = FirebaseStorage.getInstance();
 
     }
 
@@ -47,6 +57,28 @@ public class ShowPicturesActivity extends AppCompatActivity {
         picturesListRV.setHasFixedSize(true);
         picturesListRV.setLayoutManager(new LinearLayoutManager(this));
         picturesListRV.setAdapter(picturesAdapter);
+
+    }
+
+    public void uploadFile(Uri uri){
+        StorageReference imagesRef = firebaseStorage.getReference().child("images/" + UUID.randomUUID().toString());
+
+        imagesRef.putFile(uri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
+                        Uri downloadUrl = taskSnapshot.getUploadSessionUri();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(getBaseContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+
+                });
 
     }
 
@@ -70,6 +102,7 @@ public class ShowPicturesActivity extends AppCompatActivity {
 
                 Uri mUri = clipData.getItemAt(i).getUri();
                 content.add(mUri);
+                uploadFile(mUri);
             }
             setRecyclerView();
         }
