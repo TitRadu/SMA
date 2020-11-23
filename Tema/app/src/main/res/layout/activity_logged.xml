@@ -29,13 +29,6 @@
         android:onClick="teamsDBActivity"/>
 
     <Button
-        android:id="@+id/playerDBBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:text="Players DataBase"/>
-
-    <Button
         android:id="@+id/storageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
